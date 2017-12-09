@@ -37,9 +37,8 @@ then
     git -C "$repo" remote add "$base_remote" "$remote_url"
 fi
 
-base_tag="$(./scripts/show-branch-tag.bash --repo "$repo" --target "$branch" --base "$base_remote/$base_branch")"
-
 git -C "$repo" fetch --prune "$base_remote"
+base_tag="$(./scripts/show-branch-tag.bash --repo "$repo" --target "$branch" --base "$base_remote/$base_branch")"
 git -C "$repo" checkout --no-track -B "$branch" "$base_tag"
 
 # We've just reset the target branch to the base branch locally, so go ahead
