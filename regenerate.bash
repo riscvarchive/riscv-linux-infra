@@ -52,6 +52,7 @@ do
         git -C "$repo" merge \
             --no-ff \
             --rerere-autoupdate \
+	    --verify-signatures \
             -m "automerging branch \"$source_tuple\" into \"$branch\"" \
             "$source_tuple" || git -C "$repo" commit --no-edit
         ;;
@@ -59,6 +60,7 @@ do
         git -C "$repo" merge \
             --no-ff \
             --rerere-autoupdate \
+	    --verify-signatures \
             --edit \
             --gpg-sign \
             --log \
@@ -69,6 +71,7 @@ do
         git -C "$repo" merge \
             --no-ff \
             --rerere-autoupdate \
+	    --verify-signatures \
             --no-edit \
             --gpg-sign \
             --log \
