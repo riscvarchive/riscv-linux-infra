@@ -3,7 +3,7 @@
 set -e
 set -o pipefail
 
-repo="../linux"
+repo="linux"
 branch="riscv-next"
 push="false"
 while [[ "$1" != "" ]]
