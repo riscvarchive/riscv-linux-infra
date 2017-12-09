@@ -24,7 +24,6 @@ for-rc)
     remotes+=("github.com-riscv")
     ;;
 riscv-next)
-    remotes+=("kernel.org-palmer")
     remotes+=("github.com-riscv")
     ;;
 *) echo "Unknown target \"$target\"">&2; exit 1;;
@@ -43,9 +42,6 @@ do
     in
     github.com-riscv/for-rc)
         git -C "$repo" branch --all | grep "  remotes/$remote/fix-" | sed 's@^  remotes/@@' || true
-        ;;
-    kernel.org-palmer/riscv-next)
-        echo "$remote/for-linus"
         ;;
     github.com-riscv/riscv-next)
         git -C "$repo" branch --all | grep "  remotes/$remote/fix-" | sed 's@^  remotes/@@' || true
