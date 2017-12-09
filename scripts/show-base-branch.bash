@@ -13,6 +13,7 @@ done
 case "$parent"
 in
 master) echo "master";;
+for-rc) echo "master";;
 riscv-next) echo "master";;
 *) echo "Unknown parent branch \"$parent\"">&2; exit 1;;
 esac

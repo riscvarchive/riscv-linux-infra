@@ -45,10 +45,24 @@ git -C "$repo" checkout --no-track -B "$branch" "$base_tag"
 # and merge every 
 for source_tuple in $(./scripts/list-source-branches.bash --repo "$repo" --target "$branch")
 do
-    echo "automerging branch \"$source_tuple\" into \"$branch\""
-    git -C "$repo" merge \
-        --no-ff \
-        --rerere-autoupdate \
-        -m "automerging branch \"$source_tuple\" into \"$branch\"" \
-        "$source_tuple" || git -C "$repo" commit --no-edit
+    case "$(./scripts/get-merge-method.bash --target "$branch")"
+    in
+    automatic)
+        echo "automerging branch \"$source_tuple\" into \"$branch\""
+        git -C "$repo" merge \
+            --no-ff \
+            --rerere-autoupdate \
+            -m "automerging branch \"$source_tuple\" into \"$branch\"" \
+            "$source_tuple" || git -C "$repo" commit --no-edit
+        ;;
+    manual)
+        git -C "$repo" merge \
+            --no-ff \
+            --rerere-autoupdate \
+            --edit \
+            --gpg-sign \
+            --log \
+            "$source_tuple" || git -C "$repo" commit --no-edit
+        ;;
+    esac
 done
