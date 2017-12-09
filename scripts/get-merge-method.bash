@@ -17,5 +17,6 @@ case "$target"
 in
 master) echo "automatic";;
 for-rc) echo "manual";;
+for-linux-next) echo "automatic";;
 riscv-next) echo "automatic";;
 esac
