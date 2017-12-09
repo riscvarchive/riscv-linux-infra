@@ -12,6 +12,7 @@ done
 
 case "$parent"
 in
+master) echo "master";;
 riscv-next) echo "master";;
 *) echo "Unknown parent branch \"$parent\"">&2; exit 1;;
 esac

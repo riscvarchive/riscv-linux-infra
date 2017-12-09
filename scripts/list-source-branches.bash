@@ -18,6 +18,8 @@ done
 remotes=()
 case "$target"
 in
+master)
+    ;;
 riscv-next)
     remotes+=("kernel.org-palmer")
     remotes+=("github.com-riscv")
