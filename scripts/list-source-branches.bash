@@ -19,6 +19,7 @@ remotes=()
 case "$target"
 in
 riscv-next)
+    remotes+=("kernel.org-palmer")
     remotes+=("github.com-riscv")
     ;;
 *) echo "Unknown target \"$target\"">&2; exit 1;;
@@ -33,16 +34,19 @@ do
     fi
     git -C "$repo" fetch --prune "$remote"
 
-    case "$target"
+    case "$remote"/"$target"
     in
-    riscv-next)
+    kernel.org-palmer/riscv-next)
+        echo "$remote/for-linus"
+        ;;
+    github.com-riscv/riscv-next)
         git -C "$repo" branch --all | grep "  remotes/$remote/fix-" | sed 's@^  remotes/@@' || true
         git -C "$repo" branch --all | grep "  remotes/$remote/next-" | sed 's@^  remotes/@@' || true
         git -C "$repo" branch --all | grep "  remotes/$remote/review-" | sed 's@^  remotes/@@' || true
         git -C "$repo" branch --all | grep "  remotes/$remote/wip-" | sed 's@^  remotes/@@' || true
         ;;
     *)
-        echo "Unknown target \"$target\"">&2
+        echo "Unknown remote/target \"$remote\"/\"$target\"">&2
         exit 1
         ;;
     esac
