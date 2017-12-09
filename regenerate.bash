@@ -13,6 +13,7 @@ do
     --repo) repo="$2"; shift; shift;;
     --branch) parent="$2"; shift; shift;;
     --push) push="true"; shift;;
+    *) echo "unknown argument $1">&2; exit 1;;
     esac
 done
 
