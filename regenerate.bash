@@ -63,6 +63,17 @@ do
             --gpg-sign \
             --log \
             "$source_tuple" || git -C "$repo" commit --no-edit
+	;;
+    rebase)
+        orig="$(git -C "$repo" show --pretty=format:%H | head -n1)"
+        git -C "$repo" merge \
+            --no-ff \
+            --rerere-autoupdate \
+            --no-edit \
+            --gpg-sign \
+            --log \
+            "$source_tuple" || git -C "$repo" commit --no-edit
+	git -C "$repo" rebase "$orig" --gpg-sign
         ;;
     esac
 done
