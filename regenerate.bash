@@ -80,3 +80,18 @@ do
         ;;
     esac
 done
+
+# If asked to push, then go ahead and do so.
+if [[ "$push" == "true" ]]
+then
+    for remote in $(./scripts/list-target-remotes.bash --target "$branch")
+    do
+        if [[ "$(git -C "$repo" remote show "$remote")" == "" ]]
+        then
+            remote_url="$(./scripts/show-remote-url.bash --remote "$remote")"
+            git -C "$repo" remote add "$remote" "$remote_url"
+        fi
+
+        git -C "$repo" push "$remote" "$branch" --force
+    done
+fi
