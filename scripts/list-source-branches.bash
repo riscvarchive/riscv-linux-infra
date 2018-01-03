@@ -29,7 +29,7 @@ for-mw)
 for-linux-next)
     remotes+=("github.com-riscv")
     ;;
-riscv-next)
+riscv-all)
     remotes+=("github.com-riscv")
     ;;
 *) echo "Unknown target \"$target\"">&2; exit 1;;
@@ -57,7 +57,7 @@ do
         git -C "$repo" branch --all | grep "  remotes/$remote/fix-" | sed 's@^  remotes/@@' || true
         git -C "$repo" branch --all | grep "  remotes/$remote/next-" | sed 's@^  remotes/@@' || true
         ;;
-    github.com-riscv/riscv-next)
+    github.com-riscv/riscv-all)
         git -C "$repo" branch --all | grep "  remotes/$remote/fix-" | sed 's@^  remotes/@@' || true
         git -C "$repo" branch --all | grep "  remotes/$remote/next-" | sed 's@^  remotes/@@' || true
         git -C "$repo" branch --all | grep "  remotes/$remote/review-" | sed 's@^  remotes/@@' || true

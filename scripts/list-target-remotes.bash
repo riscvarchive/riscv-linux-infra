@@ -28,7 +28,7 @@ for-mw)
 for-linux-next)
     echo "kernel.org-palmer"
     ;;
-riscv-next)
+riscv-all)
     echo "kernel.org-palmer"
     echo "github.com-riscv"
     ;;

@@ -4,7 +4,7 @@ set -e
 set -o pipefail
 
 repo="linux"
-branch="riscv-next"
+branch="riscv-all"
 push="false"
 while [[ "$1" != "" ]]
 do
