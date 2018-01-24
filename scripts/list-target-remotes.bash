@@ -19,10 +19,7 @@ master)
     echo "kernel.org-palmer"
     echo "github.com-riscv"
     ;;
-for-rc)
-    echo "kernel.org-palmer"
-    ;;
-for-mw)
+for-linus)
     echo "kernel.org-palmer"
     ;;
 for-next)

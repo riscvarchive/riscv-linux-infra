@@ -13,8 +13,7 @@ done
 case "$parent"
 in
 master) echo "master";;
-for-rc) echo "master";;
-for-mw) echo "master";;
+for-linus) echo "master";;
 for-next) echo "master";;
 riscv-all) echo "master";;
 *) echo "Unknown parent branch \"$parent\"">&2; exit 1;;

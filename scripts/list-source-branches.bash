@@ -20,10 +20,7 @@ case "$target"
 in
 master)
     ;;
-for-rc)
-    remotes+=("github.com-riscv")
-    ;;
-for-mw)
+for-linus)
     remotes+=("github.com-riscv")
     ;;
 for-next)
@@ -46,7 +43,7 @@ do
 
     case "$remote"/"$target"
     in
-    github.com-riscv/for-rc)
+    github.com-riscv/for-linus)
         git -C "$repo" branch --all | grep "  remotes/$remote/fix-" | sed 's@^  remotes/@@' || true
         ;;
     github.com-riscv/for-mw)
