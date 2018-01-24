@@ -25,7 +25,7 @@ for-rc)
 for-mw)
     echo "kernel.org-palmer"
     ;;
-for-linux-next)
+for-next)
     echo "kernel.org-palmer"
     ;;
 riscv-all)

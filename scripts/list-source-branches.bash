@@ -26,7 +26,7 @@ for-rc)
 for-mw)
     remotes+=("github.com-riscv")
     ;;
-for-linux-next)
+for-next)
     remotes+=("github.com-riscv")
     ;;
 riscv-all)
@@ -53,7 +53,7 @@ do
         git -C "$repo" branch --all | grep "  remotes/$remote/fix-" | sed 's@^  remotes/@@' || true
         git -C "$repo" branch --all | grep "  remotes/$remote/next-" | sed 's@^  remotes/@@' || true
         ;;
-    github.com-riscv/for-linux-next)
+    github.com-riscv/for-next)
         git -C "$repo" branch --all | grep "  remotes/$remote/fix-" | sed 's@^  remotes/@@' || true
         git -C "$repo" branch --all | grep "  remotes/$remote/next-" | sed 's@^  remotes/@@' || true
         ;;
