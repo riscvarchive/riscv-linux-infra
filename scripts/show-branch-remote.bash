@@ -14,6 +14,6 @@ done
 
 case "$branch"
 in
-master) echo "kernel.org-torvalds";;
+master) echo "kernel.org-torvalds-linux";;
 *) echo "Unknown branch \"$branch\"">&2; exit 1;;
 esac

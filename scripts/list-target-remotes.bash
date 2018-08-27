@@ -16,18 +16,18 @@ done
 case "$target"
 in
 master)
-    echo "kernel.org-palmer"
-    echo "github.com-riscv"
-    ;;
-for-linus)
-    echo "kernel.org-palmer"
+    echo "kernel.org-palmer-linux"
+    echo "kernel.org-palmer-riscv_linux"
+    echo "github.com-riscv-riscv_linux"
     ;;
 for-next)
-    echo "kernel.org-palmer"
+    echo "kernel.org-palmer-riscv_linux"
+    echo "kernel.org-palmer-linux"
     ;;
 riscv-all)
-    echo "kernel.org-palmer"
-    echo "github.com-riscv"
+    echo "kernel.org-palmer-riscv_linux"
+    echo "kernel.org-palmer-linux"
+    echo "github.com-riscv-riscv_linux"
     ;;
 *) echo "Unknown target \"$target\"">&2; exit 1;;
 esac

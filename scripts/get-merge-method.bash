@@ -16,7 +16,6 @@ done
 case "$target"
 in
 master) echo "automatic";;
-for-linus) echo "rebase";;
 for-next) echo "automatic";;
 riscv-all) echo "automatic";;
 esac
