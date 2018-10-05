@@ -22,6 +22,7 @@ master)
     ;;
 for-next)
     remotes+=("github.com-riscv-riscv_linux")
+    remotes+=("kernel.org-palmer-linux")
     ;;
 riscv-all)
     remotes+=("github.com-riscv-riscv_linux")
@@ -42,20 +43,24 @@ do
     case "$remote"/"$target"
     in
     github.com-riscv-riscv_linux/for-next)
-        git -C "$repo" branch --all | grep "  remotes/$remote/fix-" | sed 's@^  remotes/@@' || true
-        git -C "$repo" branch --all | grep "  remotes/$remote/next-" | sed 's@^  remotes/@@' || true
+        git -C "$repo" branch --all | grep "  remotes/$remote/fix-" | sed 's@^  remotes/@@'
+        git -C "$repo" branch --all | grep "  remotes/$remote/next-" | sed 's@^  remotes/@@'
         ;;
+    kernel.org-palmer-linux/for-next)
+        git -C "$repo" branch --all | grep "  remotes/$remote/fix-" | sed 's@^  remotes/@@'
+        git -C "$repo" branch --all | grep "  remotes/$remote/next-" | sed 's@^  remotes/@@'
+	;;
     github.com-riscv-riscv_linux/riscv-all)
-        git -C "$repo" branch --all | grep "  remotes/$remote/fix-" | sed 's@^  remotes/@@' || true
-        git -C "$repo" branch --all | grep "  remotes/$remote/next-" | sed 's@^  remotes/@@' || true
-        git -C "$repo" branch --all | grep "  remotes/$remote/review-" | sed 's@^  remotes/@@' || true
-        git -C "$repo" branch --all | grep "  remotes/$remote/wip-" | sed 's@^  remotes/@@' || true
+        git -C "$repo" branch --all | grep "  remotes/$remote/fix-" | sed 's@^  remotes/@@'
+        git -C "$repo" branch --all | grep "  remotes/$remote/next-" | sed 's@^  remotes/@@'
+        git -C "$repo" branch --all | grep "  remotes/$remote/review-" | sed 's@^  remotes/@@'
+        git -C "$repo" branch --all | grep "  remotes/$remote/wip-" | sed 's@^  remotes/@@'
         ;;
-   kernel.org-palmer-linux/riscv-all)
-        git -C "$repo" branch --all | grep "  remotes/$remote/fix-" | sed 's@^  remotes/@@' || true
-        git -C "$repo" branch --all | grep "  remotes/$remote/next-" | sed 's@^  remotes/@@' || true
-        git -C "$repo" branch --all | grep "  remotes/$remote/review-" | sed 's@^  remotes/@@' || true
-        git -C "$repo" branch --all | grep "  remotes/$remote/wip-" | sed 's@^  remotes/@@' || true
+    kernel.org-palmer-linux/riscv-all)
+        git -C "$repo" branch --all | grep "  remotes/$remote/fix-" | sed 's@^  remotes/@@'
+        git -C "$repo" branch --all | grep "  remotes/$remote/next-" | sed 's@^  remotes/@@'
+        git -C "$repo" branch --all | grep "  remotes/$remote/review-" | sed 's@^  remotes/@@'
+        git -C "$repo" branch --all | grep "  remotes/$remote/wip-" | sed 's@^  remotes/@@'
         ;;
     *)
         echo "Unknown remote/target \"$remote\"/\"$target\"">&2
