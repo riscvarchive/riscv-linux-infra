@@ -18,5 +18,6 @@ kernel.org-torvalds-linux) echo "git://git.kernel.org/pub/scm/linux/kernel/git/t
 kernel.org-palmer-riscv_linux) echo "git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git";;
 kernel.org-palmer-linux) echo "git://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git";;
 github.com-riscv-riscv_linux) echo "git://github.com/riscv/riscv-linux.git";;
+github.com-sifive-riscv_linux) echo "git://github.com/sifive/riscv-linux.git";;
 *) echo "Unknown remote \"$remote\"">&2; exit 1;;
 esac

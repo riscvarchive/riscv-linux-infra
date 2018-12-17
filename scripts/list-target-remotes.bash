@@ -19,6 +19,7 @@ master)
     echo "kernel.org-palmer-linux"
     echo "kernel.org-palmer-riscv_linux"
     echo "github.com-riscv-riscv_linux"
+    echo "github.com-sifive-riscv_linux"
     ;;
 for-next)
     echo "kernel.org-palmer-riscv_linux"
