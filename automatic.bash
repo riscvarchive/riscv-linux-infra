@@ -3,6 +3,6 @@
 set -e
 set -o pipefail
 
-./regenerate.bash --branch master "$@"
-./regenerate.bash --branch for-next "$@"
-./regenerate.bash --branch riscv-all "$@"
+ionice -c3 nice -n10 ./regenerate.bash --branch master "$@"
+ionice -c3 nice -n10 ./regenerate.bash --branch for-next "$@"
+#ionice -c3 nice -n10 ./regenerate.bash --branch riscv-all "$@"
