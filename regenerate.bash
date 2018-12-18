@@ -49,12 +49,20 @@ do
     in
     automatic)
         echo "automerging branch \"$source_tuple\" into \"$branch\""
+	if [[ "$push" == "true" ]]
+	then
+	    ./scripts/rebase-tree.bash --repo "$repo" --source "$source_tuple" --target "$branch"
+	    ./scripts/test-tree.bash --repo "$repo" --tree "$source_tuple"
+	fi
+	git -C "$repo" checkout "$branch"
         git -C "$repo" merge \
             --no-ff \
             --rerere-autoupdate \
 	    --verify-signatures \
             -m "automerging branch \"$source_tuple\" into \"$branch\"" \
             "$source_tuple" || git -C "$repo" commit --no-edit
+	post_merge="$(git -C "$repo" describe)"
+	./scripts/test-tree.bash --repo "$repo" --tree "$post_merge"
         ;;
     manual)
         git -C "$repo" merge \

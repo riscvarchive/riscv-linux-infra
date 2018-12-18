@@ -1,8 +1,5 @@
 #!/bin/bash
 
-set -e
-set -o pipefail
-
 unset repo
 unset target
 while [[ "$1" != "" ]]
